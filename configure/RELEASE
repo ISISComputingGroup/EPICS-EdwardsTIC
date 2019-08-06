@@ -21,9 +21,9 @@
 # Build settings that are NOT module paths should appear in a
 # CONFIG_SITE file.
 
-SUPPORT=/home/controls/work/R3.14.12.5/support
+#SUPPORT=/home/controls/work/R3.14.12.5/support
 
-ASYN=$(SUPPORT)/asyn/master
+#ASYN=$(SUPPORT)/asyn/master
 
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
