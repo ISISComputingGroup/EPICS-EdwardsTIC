@@ -15,9 +15,9 @@ record(ai, "$(device)$(GAUGE):P")
 {
     field(DESC, "Pressure")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(device)$(GAUGE)) $(port)")
+    field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(device)$(GAUGE)) $(PORT)")
     field(SCAN, "1 second")
-    field(FLNK, "$(device):UNIT")
+    field(FLNK, "$(P)UNIT")
 }
 record(mbbi, "$(device)$(GAUGE):UNIT")
 {
@@ -26,7 +26,7 @@ record(mbbi, "$(device)$(GAUGE):UNIT")
     field(ZRVL, "59") field(ZRST, "Pa")
     field(ONVL, "66") field(ONST, "V")
     field(TWVL, "81") field(TWST, "%")
-    field(FLNK, "$(device):STA")
+    field(FLNK, "$(P)STA")
 }
 record(mbbi, "$(device)$(GAUGE):STA")
 {
@@ -43,11 +43,11 @@ record(mbbi, "$(device)$(GAUGE):STA")
     field(EIST, "Degassing")
     field(NIST, "On")
     field(TEST, "Inhibited")
-    field(FLNK, "$(device):ALERT")
+    field(FLNK, "$(P)ALERT")
 }
 record(longin, "$(device)$(GAUGE):ALERT")
 {
-    field(FLNK, "$(device):PRI")
+    field(FLNK, "$(P)PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")

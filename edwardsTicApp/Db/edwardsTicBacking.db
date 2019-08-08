@@ -10,22 +10,22 @@
 ################################################################################
 # STA - Backing Pump status
 #
-record(mbbi, "$(device):STA")
+record(mbbi, "$(P)STA")
 {
     field(DESC, "Pump status")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_sta($(device):STA) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_sta($(P)STA) $(PORT)")
     field(SCAN, "1 second")
     field(ZRST, "Off")
     field(ONST, "Going On")
     field(TWST, "Going Off (Normal)")
     field(THST, "Going Off (Shutdown)")
     field(FRST, "On")
-    field(FLNK, "$(device):STA:ALERT")
+    field(FLNK, "$(P)STA:ALERT")
 }
-record(longin, "$(device):STA:ALERT")
+record(longin, "$(P)STA:ALERT")
 {
-    field(FLNK, "$(device):STA:PRI")
+    field(FLNK, "$(P)STA:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -35,7 +35,7 @@ record(longin, "$(device):STA:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):STA:PRI")
+record(mbbi, "$(P)STA:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")
@@ -45,22 +45,22 @@ record(mbbi, "$(device):STA:PRI")
 ################################################################################
 # START - Start Backing Pump
 #
-record(bo, "$(device):START")
+record(bo, "$(P)START")
 {
     field(DESC, "Start Pump")
     field(DTYP, "stream")
-    field(OUT,  "@edwardsTic.proto start_b $(port)")
+    field(OUT,  "@edwardsTic.proto start_b $(PORT)")
     field(ZNAM, "Off")
     field(ONAM, "On")
 }
 ################################################################################
 # SPEED - Backing Pump Speed
 #
-record(ai, "$(device):SPEED")
+record(ai, "$(P)SPEED")
 {
     field(DESC, "Speed")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_speed($(device):SPEED) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_speed($(P)SPEED) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "%")
     field(PREC, "1")
@@ -74,11 +74,11 @@ record(ai, "$(device):SPEED")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(device):SPEED:ALERT")
+    field(FLNK, "$(P)SPEED:ALERT")
 }
-record(longin, "$(device):SPEED:ALERT")
+record(longin, "$(P)SPEED:ALERT")
 {
-    field(FLNK, "$(device):SPEED:PRI")
+    field(FLNK, "$(P)SPEED:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -88,7 +88,7 @@ record(longin, "$(device):SPEED:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):SPEED:PRI")
+record(mbbi, "$(P)SPEED:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")
@@ -98,11 +98,11 @@ record(mbbi, "$(device):SPEED:PRI")
 ################################################################################
 # SPEED - Backing Pump Power
 #
-record(ai, "$(device):POWER")
+record(ai, "$(P)POWER")
 {
     field(DESC, "Power")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_power($(device):POWER) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_power($(P)POWER) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "W")
     field(PREC, "1")
@@ -116,11 +116,11 @@ record(ai, "$(device):POWER")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(device):POWER:ALERT")
+    field(FLNK, "$(P)POWER:ALERT")
 }
-record(longin, "$(device):POWER:ALERT")
+record(longin, "$(P)POWER:ALERT")
 {
-    field(FLNK, "$(device):POWER:PRI")
+    field(FLNK, "$(P)POWER:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -130,7 +130,7 @@ record(longin, "$(device):POWER:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):POWER:PRI")
+record(mbbi, "$(P)POWER:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")
