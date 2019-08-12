@@ -11,24 +11,27 @@
 ################################################################################
 # P - Pressure
 #
-record(ai, "$(device)$(GAUGE):P")
+record(ai, "$(P)$(GAUGE):P")
 {
     field(DESC, "Pressure")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(device)$(GAUGE)) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(P)$(GAUGE)) $(PORT)")
     field(SCAN, "1 second")
     field(FLNK, "$(P)UNIT")
 }
-record(mbbi, "$(device)$(GAUGE):UNIT")
+record(mbbi, "$(P)$(GAUGE):UNIT")
 {
     field(DESC, "Units")
     field(DTYP, "Raw Soft Channel")
-    field(ZRVL, "59") field(ZRST, "Pa")
-    field(ONVL, "66") field(ONST, "V")
-    field(TWVL, "81") field(TWST, "%")
+    field(ZRVL, "59")
+    field(ZRST, "Pa")
+    field(ONVL, "66")
+    field(ONST, "V")
+    field(TWVL, "81")
+    field(TWST, "%")
     field(FLNK, "$(P)STA")
 }
-record(mbbi, "$(device)$(GAUGE):STA")
+record(mbbi, "$(P)$(GAUGE):STA")
 {
     field(DESC, "Status")
     field(ZRST, "Not Connected")
@@ -45,7 +48,7 @@ record(mbbi, "$(device)$(GAUGE):STA")
     field(TEST, "Inhibited")
     field(FLNK, "$(P)ALERT")
 }
-record(longin, "$(device)$(GAUGE):ALERT")
+record(longin, "$(P)$(GAUGE):ALERT")
 {
     field(FLNK, "$(P)PRI")
     field(HIGH, "1")
@@ -57,7 +60,7 @@ record(longin, "$(device)$(GAUGE):ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device)$(GAUGE):PRI")
+record(mbbi, "$(P)$(GAUGE):PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")

@@ -22,7 +22,8 @@ record(mbbi, "$(P)STA")
     field(THST, "Stopping Normal Delay")
     field(FRST, "Running")
     field(FVST, "Accelerating")
-    field(SXST, "Fault Breaking")   field(SXSV, "MAJOR")
+    field(SXST, "Fault Breaking")
+    field(SXSV, "MAJOR")
     field(SVST, "Braking")
     field(FLNK, "$(P)STA:ALERT")
 }
@@ -41,9 +42,12 @@ record(longin, "$(P)STA:ALERT")
 record(mbbi, "$(P)STA:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # START - Start Turbo Pump
@@ -94,9 +98,12 @@ record(longin, "$(P)SPEED:ALERT")
 record(mbbi, "$(P)SPEED:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # SRF - Turbo Pump Start/Droop Fail Time
@@ -105,7 +112,7 @@ record(longin, "$(P)SFT")
 {
     field(DESC, "Start Fail Time")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_sft($(device)) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_sft($(P)) $(PORT)")
     field(SCAN, "10 second")
     field(EGU,  "s")
     field(LOPR, "0")
@@ -157,9 +164,12 @@ record(longin, "$(P)POWER:ALERT")
 record(mbbi, "$(P)POWER:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # NORM - Turbo Pump at normal speed
@@ -172,7 +182,6 @@ record(bi, "$(P)NORM")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(OVAL, "4")
     field(FLNK, "$(P)NORM:ALERT")
 }
 record(longin, "$(P)NORM:ALERT")
@@ -205,7 +214,6 @@ record(bi, "$(P)STBY")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(OVAL, "4")
     field(FLNK, "$(P)STBY:ALERT")
 }
 record(longin, "$(P)STBY:ALERT")
