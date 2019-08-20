@@ -1,0 +1,6 @@
+## Errors are not forwarded in protocol redirects
+file "$(UTILITIES)/db/error_setter.template" {
+  pattern {P, STREAM_PV, PV_NAME}
+    {"\$(P)", "TURBO:STA", "TURBO:STA:ALERT"}
+    {"\$(P)", "TURBO:STA", "TURBO:STA:PRI"}
+}

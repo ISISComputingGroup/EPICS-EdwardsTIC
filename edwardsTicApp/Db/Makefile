@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 DB += edwardsTicTurbo.db
 DB += edwardsTicBacking.db
 DB += edwardsTicGauge.db
+DB += edwardsTicErrors.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

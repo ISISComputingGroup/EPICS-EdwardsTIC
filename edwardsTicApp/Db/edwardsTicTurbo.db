@@ -210,9 +210,12 @@ record(longin, "$(P)TURBO:NORM:ALERT")
 record(mbbi, "$(P)TURBO:NORM:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # STBY - Standby Mode
