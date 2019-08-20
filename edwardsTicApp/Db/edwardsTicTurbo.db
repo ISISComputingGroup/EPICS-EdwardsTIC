@@ -10,11 +10,22 @@
 ################################################################################
 # STA - Turbo Pump status
 #
-record(mbbi, "$(P)STA")
+
+record(bo, "$(P)DISABLE")
+{
+    field(DESC, "Disable comms")
+    field(PINI, "YES")
+    field(VAL, "$(DISABLE=0)")
+    field(OMSL, "supervisory")
+    field(ZNAM, "COMMS ENABLED")
+    field(ONAM, "COMMS DISABLED")
+}
+
+record(mbbi, "$(P)TURBO:STA")
 {
     field(DESC, "Pump status")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_sta($(P)STA) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_sta($(P)TURBO:STA:) $(PORT)")
     field(SCAN, "1 second")
     field(ZRST, "Stopped")
     field(ONST, "Starting Delay")
@@ -25,11 +36,11 @@ record(mbbi, "$(P)STA")
     field(SXST, "Fault Breaking")
     field(SXSV, "MAJOR")
     field(SVST, "Braking")
-    field(FLNK, "$(P)STA:ALERT")
+    field(FLNK, "$(P)TURBO:STA:ALERT")
 }
-record(longin, "$(P)STA:ALERT")
+record(longin, "$(P)TURBO:STA:ALERT")
 {
-    field(FLNK, "$(P)STA:PRI")
+    field(FLNK, "$(P)TURBO:STA:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -39,7 +50,7 @@ record(longin, "$(P)STA:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)STA:PRI")
+record(mbbi, "$(P)TURBO:STA:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning")
@@ -52,7 +63,7 @@ record(mbbi, "$(P)STA:PRI")
 ################################################################################
 # START - Start Turbo Pump
 #
-record(bo, "$(P)START")
+record(bo, "$(P)TURBO:START")
 {
     field(DESC, "Start Pump")
     field(DTYP, "stream")
@@ -63,11 +74,11 @@ record(bo, "$(P)START")
 ################################################################################
 # SPEED - Turbo Pump Speed
 #
-record(ai, "$(P)SPEED")
+record(ai, "$(P)TURBO:SPEED")
 {
     field(DESC, "Speed")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_speed($(P)SPEED) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_speed($(P)TURBO:SPEED:) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "%")
     field(PREC, "1")
@@ -81,11 +92,11 @@ record(ai, "$(P)SPEED")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(P)SPEED:ALERT")
+    field(FLNK, "$(P)TURBO:SPEED:ALERT")
 }
-record(longin, "$(P)SPEED:ALERT")
+record(longin, "$(P)TURBO:SPEED:ALERT")
 {
-    field(FLNK, "$(P)SPEED:PRI")
+    field(FLNK, "$(P)TURBO:SPEED:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -95,7 +106,7 @@ record(longin, "$(P)SPEED:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)SPEED:PRI")
+record(mbbi, "$(P)TURBO:SPEED:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning")
@@ -108,18 +119,18 @@ record(mbbi, "$(P)SPEED:PRI")
 ################################################################################
 # SRF - Turbo Pump Start/Droop Fail Time
 #
-record(longin, "$(P)SFT")
+record(longin, "$(P)TURBO:SFT")
 {
     field(DESC, "Start Fail Time")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_sft($(P)) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_sft($(P)TURBO:) $(PORT)")
     field(SCAN, "10 second")
     field(EGU,  "s")
     field(LOPR, "0")
     field(HOPR, "30")
-    field(FLNK, "$(P)DFT")
+    field(FLNK, "$(P)TURBO:DFT")
 }
-record(longin, "$(P)DFT")
+record(longin, "$(P)TURBO:DFT")
 {
     field(DESC, "Droop Fail Time")
     field(EGU,  "s")
@@ -129,11 +140,11 @@ record(longin, "$(P)DFT")
 ################################################################################
 # SPEED - Turbo Pump Power
 #
-record(ai, "$(P)POWER")
+record(ai, "$(P)TURBO:POWER")
 {
     field(DESC, "Power")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_power($(P)POWER) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_power($(P)TURBO:POWER:) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "W")
     field(PREC, "1")
@@ -147,11 +158,11 @@ record(ai, "$(P)POWER")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(P)POWER:ALERT")
+    field(FLNK, "$(P)TURBO:POWER:ALERT")
 }
-record(longin, "$(P)POWER:ALERT")
+record(longin, "$(P)TURBO:POWER:ALERT")
 {
-    field(FLNK, "$(P)POWER:PRI")
+    field(FLNK, "$(P)TURBO:POWER:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -161,7 +172,7 @@ record(longin, "$(P)POWER:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)POWER:PRI")
+record(mbbi, "$(P)TURBO:POWER:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning")
@@ -174,19 +185,19 @@ record(mbbi, "$(P)POWER:PRI")
 ################################################################################
 # NORM - Turbo Pump at normal speed
 #
-record(bi, "$(P)NORM")
+record(bi, "$(P)TURBO:NORM")
 {
     field(DESC, "Normal Speed")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_norm($(P)NORM) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_norm($(P)TURBO:NORM:) $(PORT)")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(FLNK, "$(P)NORM:ALERT")
+    field(FLNK, "$(P)TURBO:NORM:ALERT")
 }
-record(longin, "$(P)NORM:ALERT")
+record(longin, "$(P)TURBO:NORM:ALERT")
 {
-    field(FLNK, "$(P)NORM:PRI")
+    field(FLNK, "$(P)TURBO:NORM:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -196,7 +207,7 @@ record(longin, "$(P)NORM:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)NORM:PRI")
+record(mbbi, "$(P)TURBO:NORM:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")
@@ -206,19 +217,19 @@ record(mbbi, "$(P)NORM:PRI")
 ################################################################################
 # STBY - Standby Mode
 #
-record(bi, "$(P)STBY")
+record(bi, "$(P)TURBO:STBY")
 {
     field(DESC, "Standby Mode")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_stby($(P)STBY) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_stby($(P)TURBO:STBY:) $(PORT)")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(FLNK, "$(P)STBY:ALERT")
+    field(FLNK, "$(P)TURBO:STBY:ALERT")
 }
-record(longin, "$(P)STBY:ALERT")
+record(longin, "$(P)TURBO:STBY:ALERT")
 {
-    field(FLNK, "$(P)STBY:PRI")
+    field(FLNK, "$(P)TURBO:STBY:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -228,17 +239,20 @@ record(longin, "$(P)STBY:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)STBY:PRI")
+record(mbbi, "$(P)TURBO:STBY:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # START - Set Standby Mode
 #
-record(bo, "$(P)SETSTBY")
+record(bo, "$(P)TURBO:SETSTBY")
 {
     field(DESC, "Standby Mode")
     field(DTYP, "stream")
@@ -249,24 +263,24 @@ record(bo, "$(P)SETSTBY")
 ################################################################################
 # CYCLE - Turbo Pump Cycle Time
 #
-record(longin, "$(P)CYCLE")
+record(longin, "$(P)TURBO:CYCLE")
 {
     field(DESC, "Cycle Tim")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_t_cycle($(P)CYCLE) $(PORT)")
+    field(INP,  "@edwardsTic.proto get_t_cycle($(P)TURBO:CYCLE:) $(PORT)")
     field(SCAN, "10 second")
     field(EGU,  "h")
     field(LOPR, "0")
     field(HOPR, "65535")
-    field(FLNK, "$(P)CYCLE:STATE")
+    field(FLNK, "$(P)TURBO:CYCLE:STATE")
 }
-record(longin, "$(P)CYCLE:STATE")
+record(longin, "$(P)TURBO:CYCLE:STATE")
 {
-     field(FLNK, "$(P)CYCLE:ALERT")
+     field(FLNK, "$(P)TURBO:CYCLE:ALERT")
 }
-record(longin, "$(P)CYCLE:ALERT")
+record(longin, "$(P)TURBO:CYCLE:ALERT")
 {
-    field(FLNK, "$(P)CYCLE:PRI")
+    field(FLNK, "$(P)TURBO:CYCLE:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -276,7 +290,7 @@ record(longin, "$(P)CYCLE:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(P)CYCLE:PRI")
+record(mbbi, "$(P)TURBO:CYCLE:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")

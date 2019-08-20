@@ -12,20 +12,20 @@ get_tic_sta { out "?S902" ; in "=S902 %s" ; }
 
 get_test { out "?V916" ; in "=V916 %s" ; }
 
-get_t_sta   { out "?V904"    ; in "=V904 %d;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_t_sta   { out "?V904"    ; in "=V904 %d;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 start_t     { out "!C904 %d" ; in "*C904 0"                                    ; }
-get_t_speed { out "?V905"    ; in "=V905 %g;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_t_speed { out "?V905"    ; in "=V905 %g;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 get_t_sft   { out "?S905"    ; in "=S905 %d;%(\$1DFT.VAL)d"                   ; }
-get_t_power { out "?V906"    ; in "=V906 %g;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
-get_t_norm  { out "?V907"    ; in "=V907 %B04;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
-get_t_stby  { out "?V908"    ; in "=V908 %B04;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_t_power { out "?V906"    ; in "=V906 %g;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
+get_t_norm  { out "?V907"    ; in "=V907 %B04;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
+get_t_stby  { out "?V908"    ; in "=V908 %B04;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 set_t_stby  { out "!C908 %d" ; in "*C908 0"                                    ; }
-get_t_cycle { out "?V909"    ; in "=V909 %d;%(\$1STATE.VAL)d;%(\$1:ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_t_cycle { out "?V909"    ; in "=V909 %d;%(\$1STATE.VAL)d;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 
-get_b_sta   { out "?V910"    ; in "=V910 %d;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_b_sta   { out "?V910"    ; in "=V910 %d;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 start_b     { out "!C910 %d" ; in "*C910 0"                                    ; }
-get_b_speed { out "?V911"    ; in "=V911 %g;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
-get_b_power { out "?V912"    ; in "=V912 %g;%(\$1ALERT.VAL)d;%(\$1:PRI.VAL)d" ; }
+get_b_speed { out "?V911"    ; in "=V911 %g;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
+get_b_power { out "?V912"    ; in "=V912 %g;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 
 get_g1_p    { out "?V913"    ; in "=V913 %g;%(\$1UNIT.RVAL)d;%(\$1STA.VAL)d;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
 get_g2_p    { out "?V914"    ; in "=V914 %g;%(\$1UNIT.RVAL)d;%(\$1STA.VAL)d;%(\$1ALERT.VAL)d;%(\$1PRI.VAL)d" ; }
