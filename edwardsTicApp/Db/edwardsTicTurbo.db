@@ -36,11 +36,9 @@ record(mbbi, "$(P)TURBO:STA")
     field(SXST, "Fault Breaking")
     field(SXSV, "MAJOR")
     field(SVST, "Braking")
-    field(FLNK, "$(P)TURBO:STA:ALERT")
 }
 record(longin, "$(P)TURBO:STA:ALERT")
 {
-    field(FLNK, "$(P)TURBO:STA:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -92,11 +90,9 @@ record(ai, "$(P)TURBO:SPEED")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(P)TURBO:SPEED:ALERT")
 }
 record(longin, "$(P)TURBO:SPEED:ALERT")
 {
-    field(FLNK, "$(P)TURBO:SPEED:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -128,7 +124,6 @@ record(longin, "$(P)TURBO:SFT")
     field(EGU,  "s")
     field(LOPR, "0")
     field(HOPR, "30")
-    field(FLNK, "$(P)TURBO:DFT")
 }
 record(longin, "$(P)TURBO:DFT")
 {
@@ -158,11 +153,9 @@ record(ai, "$(P)TURBO:POWER")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(P)TURBO:POWER:ALERT")
 }
 record(longin, "$(P)TURBO:POWER:ALERT")
 {
-    field(FLNK, "$(P)TURBO:POWER:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -193,11 +186,10 @@ record(bi, "$(P)TURBO:NORM")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(FLNK, "$(P)TURBO:NORM:ALERT")
+
 }
 record(longin, "$(P)TURBO:NORM:ALERT")
 {
-    field(FLNK, "$(P)TURBO:NORM:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -228,11 +220,9 @@ record(bi, "$(P)TURBO:STBY")
     field(SCAN, "1 second")
     field(ZNAM, "No")
     field(ONAM, "Yes")
-    field(FLNK, "$(P)TURBO:STBY:ALERT")
 }
 record(longin, "$(P)TURBO:STBY:ALERT")
 {
-    field(FLNK, "$(P)TURBO:STBY:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -268,22 +258,19 @@ record(bo, "$(P)TURBO:SETSTBY")
 #
 record(longin, "$(P)TURBO:CYCLE")
 {
-    field(DESC, "Cycle Tim")
+    field(DESC, "Cycle Time")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_t_cycle($(P)TURBO:CYCLE:) $(PORT)")
     field(SCAN, "10 second")
     field(EGU,  "h")
     field(LOPR, "0")
     field(HOPR, "65535")
-    field(FLNK, "$(P)TURBO:CYCLE:STATE")
 }
-record(longin, "$(P)TURBO:CYCLE:STATE")
-{
-     field(FLNK, "$(P)TURBO:CYCLE:ALERT")
-}
+
+record(longin, "$(P)TURBO:CYCLE:STATE"){}
+
 record(longin, "$(P)TURBO:CYCLE:ALERT")
 {
-    field(FLNK, "$(P)TURBO:CYCLE:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")

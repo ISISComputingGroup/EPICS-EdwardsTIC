@@ -17,7 +17,6 @@ record(ai, "$(P)GAUGE$(GAUGE):P")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(P)GAUGE$(GAUGE):) $(PORT)")
     field(SCAN, "1 second")
-    field(FLNK, "$(P)GAUGE$(GAUGE):UNIT")
 }
 record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
 {
@@ -29,7 +28,6 @@ record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
     field(ONST, "V")
     field(TWVL, "81")
     field(TWST, "%")
-    field(FLNK, "$(P)GAUGE$(GAUGE):STA")
 }
 record(mbbi, "$(P)GAUGE$(GAUGE):STA")
 {
@@ -46,11 +44,9 @@ record(mbbi, "$(P)GAUGE$(GAUGE):STA")
     field(EIST, "Degassing")
     field(NIST, "On")
     field(TEST, "Inhibited")
-    field(FLNK, "$(P)GAUGE$(GAUGE):ALERT")
 }
 record(longin, "$(P)GAUGE$(GAUGE):ALERT")
 {
-    field(FLNK, "$(P)GAUGE$(GAUGE):PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
