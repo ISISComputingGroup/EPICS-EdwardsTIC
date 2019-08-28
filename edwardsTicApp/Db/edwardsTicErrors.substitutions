@@ -3,4 +3,20 @@ file "$(UTILITIES)/db/error_setter.template" {
   pattern {P, STREAM_PV, PV_NAME}
     {"\$(P)", "TURBO:STA", "TURBO:STA:ALERT"}
     {"\$(P)", "TURBO:STA", "TURBO:STA:PRI"}
+
+    {"\$(P)", "TURBO:SPEED", "TURBO:SPEED:ALERT"}
+    {"\$(P)", "TURBO:SPEED", "TURBO:SPEED:PRI"}
+
+    {"\$(P)", "TURBO:POWER", "TURBO:POWER:ALERT"}
+    {"\$(P)", "TURBO:POWER", "TURBO:POWER:PRI"}
+
+    {"\$(P)", "TURBO:NORM", "TURBO:NORM:ALERT"}
+    {"\$(P)", "TURBO:NORM", "TURBO:NORM:PRI"}
+
+    {"\$(P)", "TURBO:STBY", "TURBO:STBY:ALERT"}
+    {"\$(P)", "TURBO:STBY", "TURBO:STBY:PRI"}
+
+    {"\$(P)", "TURBO:CYCLE", "TURBO:CYCLE:ALERT"}
+    {"\$(P)", "TURBO:CYCLE", "TURBO:CYCLE:PRI"}
+
 }
