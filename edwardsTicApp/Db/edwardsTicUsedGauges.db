@@ -1,0 +1,37 @@
+# These records are used by the OPI to determine which gauge pressures to plot
+
+record(bi, "$(P)GAUGE1VISIBLE")
+{
+    field(DESC, "Is Gauge 1 used")
+
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(PINI, "YES")
+$(IFGAUGE1) field(VAL, "1")
+}
+
+record(bi, "$(P)GAUGE2VISIBLE")
+{
+    field(DESC, "Is Gauge 2 used")
+
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(PINI, "YES")
+$(IFGAUGE2) field(VAL, "1")
+}
+
+record(bi, "$(P)GAUGE3VISIBLE")
+{
+    field(DESC, "Is Gauge 3 used")
+
+    field(SCAN, "Passive")
+    field(DTYP, "Soft Channel")
+    field(ZNAM, "NO")
+    field(ONAM, "YES")
+    field(PINI, "YES")
+$(IFGAUGE3) field(VAL, "1")
+}

@@ -14,6 +14,7 @@ DB += edwardsTicTurbo.db
 DB += edwardsTicBacking.db
 DB += edwardsTicGauge.db
 DB += edwardsTicErrors.db
+DB += edwardsTicUsedGauges.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
