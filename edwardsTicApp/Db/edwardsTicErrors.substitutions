@@ -19,4 +19,9 @@ file "$(UTILITIES)/db/error_setter.template" {
     {"\$(P)", "TURBO:CYCLE", "TURBO:CYCLE:ALERT"}
     {"\$(P)", "TURBO:CYCLE", "TURBO:CYCLE:PRI"}
 
+    {"\$(P)", "GAUGE1:P", "GAUGE1:STA"}
+    {"\$(P)", "GAUGE1:P", "GAUGE1:ALERT"}
+    {"\$(P)", "GAUGE1:P", "GAUGE1:UNIT"}
+    {"\$(P)", "GAUGE1:P", "GAUGE1:PRI"}
+
 }

@@ -40,11 +40,9 @@ record(mbbi, "$(P)TURBO:STA")
 record(longin, "$(P)TURBO:STA:ALERT")
 {
     field(HIGH, "1")
-    field(LOW,  "-1")
     field(HIHI, "48")
     field(LOLO, "-1")
     field(HSV,  "MINOR")
-    field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
@@ -283,8 +281,11 @@ record(longin, "$(P)TURBO:CYCLE:ALERT")
 record(mbbi, "$(P)TURBO:CYCLE:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
