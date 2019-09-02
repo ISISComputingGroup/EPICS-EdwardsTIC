@@ -3,7 +3,7 @@
 # Serial Line Setup:
 # 9600 baud, 1 stop bit, 8 data bits, No parity, Xon/Xoff
 
-replytimeout = 500;
+replytimeout = 1000;
 readtimeout  = 500;
 terminator   = CR;
 
