@@ -12,7 +12,7 @@
 #
 record(mbbi, "$(P)BACKING:STA")
 {
-    field(DESC, "Pump status")
+    field(DESC, "Backing pump status")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_b_sta($(P)BACKING:STA:) $(PORT)")
     field(SCAN, "1 second")
@@ -48,7 +48,7 @@ record(mbbi, "$(P)BACKING:STA:PRI")
 #
 record(bo, "$(P)BACKING:START")
 {
-    field(DESC, "Start Pump")
+    field(DESC, "Start backing pump")
     field(DTYP, "stream")
     field(OUT,  "@edwardsTic.proto start_b $(PORT)")
     field(ZNAM, "Off")
@@ -59,7 +59,7 @@ record(bo, "$(P)BACKING:START")
 #
 record(ai, "$(P)BACKING:SPEED")
 {
-    field(DESC, "Speed")
+    field(DESC, "Backing pump speed")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_b_speed($(P)BACKING:SPEED:) $(PORT)")
     field(SCAN, "1 second")
@@ -102,7 +102,7 @@ record(mbbi, "$(P)BACKING:SPEED:PRI")
 #
 record(ai, "$(P)BACKING:POWER")
 {
-    field(DESC, "Power")
+    field(DESC, "Backing pump power")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_b_power($(P)BACKING:POWER:) $(PORT)")
     field(SCAN, "1 second")

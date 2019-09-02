@@ -24,4 +24,21 @@ file "$(UTILITIES)/db/error_setter.template" {
     {"\$(P)", "GAUGE1:P", "GAUGE1:UNIT"}
     {"\$(P)", "GAUGE1:P", "GAUGE1:PRI"}
 
+    {"\$(P)", "GAUGE2:P", "GAUGE2:STA"}
+    {"\$(P)", "GAUGE2:P", "GAUGE2:ALERT"}
+    {"\$(P)", "GAUGE2:P", "GAUGE2:UNIT"}
+    {"\$(P)", "GAUGE2:P", "GAUGE2:PRI"}
+
+    {"\$(P)", "GAUGE3:P", "GAUGE3:STA"}
+    {"\$(P)", "GAUGE3:P", "GAUGE3:ALERT"}
+    {"\$(P)", "GAUGE3:P", "GAUGE3:UNIT"}
+    {"\$(P)", "GAUGE3:P", "GAUGE3:PRI"}
+}
+
+file "$(UTILITIES)/db/unit_setter.template" {
+  pattern {P, FROM, TO}
+
+  {"\$(P)", "GAUGE1:UNIT", "GAUGE1:P"}
+  {"\$(P)", "GAUGE2:UNIT", "GAUGE2:P"}
+  {"\$(P)", "GAUGE3:UNIT", "GAUGE3:P"}
 }

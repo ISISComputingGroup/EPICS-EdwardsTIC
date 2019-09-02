@@ -13,14 +13,21 @@
 #
 record(ai, "$(P)GAUGE$(GAUGE):P")
 {
-    field(DESC, "Pressure")
+    field(DESC, "Gauge $(GAUGE) Pressure")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(P)GAUGE$(GAUGE):) $(PORT)")
     field(SCAN, "1 second")
+
+    field(EGU, "")
+
+    info(archive, "VAL")
+    info(INTEREST, "HIGH")
+
+    info(alarm, "EDTIC")
 }
 record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
 {
-    field(DESC, "Units")
+    field(DESC, "Gauge $(GAUGE) Units")
     field(DTYP, "Raw Soft Channel")
     field(ZRVL, "59")
     field(ZRST, "Pa")
@@ -31,7 +38,7 @@ record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
 }
 record(mbbi, "$(P)GAUGE$(GAUGE):STA")
 {
-    field(DESC, "Status")
+    field(DESC, "Gauge $(GAUGE) status")
     field(ZRST, "Not Connected")
     field(ONST, "Connected")
     field(TWST, "New ID")

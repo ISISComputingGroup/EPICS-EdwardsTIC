@@ -13,7 +13,7 @@ include $(TOP)/configure/CONFIG
 DB += edwardsTicTurbo.db
 DB += edwardsTicBacking.db
 DB += edwardsTicGauge.db
-DB += edwardsTicErrors.db
+DB += edwardsTicErrorsUnits.db
 DB += edwardsTicUsedGauges.db
 
 #----------------------------------------------------

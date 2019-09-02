@@ -36,6 +36,7 @@ record(mbbi, "$(P)TURBO:STA")
     field(SXST, "Fault Breaking")
     field(SXSV, "MAJOR")
     field(SVST, "Braking")
+    info(ALARM, "EDTIC")
 }
 record(longin, "$(P)TURBO:STA:ALERT")
 {
@@ -61,7 +62,7 @@ record(mbbi, "$(P)TURBO:STA:PRI")
 #
 record(bo, "$(P)TURBO:START")
 {
-    field(DESC, "Start Pump")
+    field(DESC, "Start/stop Pump")
     field(DTYP, "stream")
     field(OUT,  "@edwardsTic.proto start_t $(PORT)")
     field(ZNAM, "Off")
@@ -72,7 +73,7 @@ record(bo, "$(P)TURBO:START")
 #
 record(ai, "$(P)TURBO:SPEED")
 {
-    field(DESC, "Speed")
+    field(DESC, "Turbo pump speed")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_t_speed($(P)TURBO:SPEED:) $(PORT)")
     field(SCAN, "1 second")
@@ -135,7 +136,7 @@ record(longin, "$(P)TURBO:DFT")
 #
 record(ai, "$(P)TURBO:POWER")
 {
-    field(DESC, "Power")
+    field(DESC, "Turbo pump power")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_t_power($(P)TURBO:POWER:) $(PORT)")
     field(SCAN, "1 second")
@@ -178,7 +179,7 @@ record(mbbi, "$(P)TURBO:POWER:PRI")
 #
 record(bi, "$(P)TURBO:NORM")
 {
-    field(DESC, "Normal Speed")
+    field(DESC, "Pump at normal Speed")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_t_norm($(P)TURBO:NORM:) $(PORT)")
     field(SCAN, "1 second")
@@ -245,7 +246,7 @@ record(mbbi, "$(P)TURBO:STBY:PRI")
 #
 record(bo, "$(P)TURBO:SETSTBY")
 {
-    field(DESC, "Standby Mode")
+    field(DESC, "Set Standby Mode")
     field(DTYP, "stream")
     field(OUT,  "@edwardsTic.proto set_t_stby $(PORT)")
     field(ZNAM, "No")
@@ -256,11 +257,11 @@ record(bo, "$(P)TURBO:SETSTBY")
 #
 record(longin, "$(P)TURBO:CYCLE")
 {
-    field(DESC, "Cycle Time")
+    field(DESC, "Turbo uptime")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_t_cycle($(P)TURBO:CYCLE:) $(PORT)")
     field(SCAN, "10 second")
-    field(EGU,  "h")
+    field(EGU,  "hour")
     field(LOPR, "0")
     field(HOPR, "65535")
 }
