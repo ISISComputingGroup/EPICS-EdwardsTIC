@@ -11,7 +11,7 @@
 ################################################################################
 # P - Pressure
 #
-record(ai, "$(P)GAUGE$(GAUGE):P")
+record(ai, "$(P)GAUGE$(GAUGE):PRESSURE")
 {
     field(DESC, "Gauge $(GAUGE) Pressure")
     field(DTYP, "stream")
