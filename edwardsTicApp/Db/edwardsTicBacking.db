@@ -10,22 +10,20 @@
 ################################################################################
 # STA - Backing Pump status
 #
-record(mbbi, "$(device):STA")
+record(mbbi, "$(P)BACKING:STA")
 {
-    field(DESC, "Pump status")
+    field(DESC, "Backing pump status")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_sta($(device):STA) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_sta($(P)BACKING:STA:) $(PORT)")
     field(SCAN, "1 second")
     field(ZRST, "Off")
     field(ONST, "Going On")
     field(TWST, "Going Off (Normal)")
     field(THST, "Going Off (Shutdown)")
     field(FRST, "On")
-    field(FLNK, "$(device):STA:ALERT")
 }
-record(longin, "$(device):STA:ALERT")
+record(longin, "$(P)BACKING:STA:ALERT")
 {
-    field(FLNK, "$(device):STA:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -35,32 +33,35 @@ record(longin, "$(device):STA:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):STA:PRI")
+record(mbbi, "$(P)BACKING:STA:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # START - Start Backing Pump
 #
-record(bo, "$(device):START")
+record(bo, "$(P)BACKING:START")
 {
-    field(DESC, "Start Pump")
+    field(DESC, "Start backing pump")
     field(DTYP, "stream")
-    field(OUT,  "@edwardsTic.proto start_b $(port)")
+    field(OUT,  "@edwardsTic.proto start_b $(PORT)")
     field(ZNAM, "Off")
     field(ONAM, "On")
 }
 ################################################################################
 # SPEED - Backing Pump Speed
 #
-record(ai, "$(device):SPEED")
+record(ai, "$(P)BACKING:SPEED")
 {
-    field(DESC, "Speed")
+    field(DESC, "Backing pump speed")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_speed($(device):SPEED) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_speed($(P)BACKING:SPEED:) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "%")
     field(PREC, "1")
@@ -74,11 +75,9 @@ record(ai, "$(device):SPEED")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(device):SPEED:ALERT")
 }
-record(longin, "$(device):SPEED:ALERT")
+record(longin, "$(P)BACKING:SPEED:ALERT")
 {
-    field(FLNK, "$(device):SPEED:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -88,21 +87,24 @@ record(longin, "$(device):SPEED:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):SPEED:PRI")
+record(mbbi, "$(P)BACKING:SPEED:PRI")
 {
     field(ZRST, "OK")
-    field(ONST, "Warning") field(ONSV, "MINOR")
-    field(TWST, "Alarm")   field(TWSV, "MINOR")
-    field(THST, "Alarm")   field(THSV, "MAJOR")
+    field(ONST, "Warning")
+    field(ONSV, "MINOR")
+    field(TWST, "Alarm")
+    field(TWSV, "MINOR")
+    field(THST, "Alarm")
+    field(THSV, "MAJOR")
 }
 ################################################################################
 # SPEED - Backing Pump Power
 #
-record(ai, "$(device):POWER")
+record(ai, "$(P)BACKING:POWER")
 {
-    field(DESC, "Power")
+    field(DESC, "Backing pump power")
     field(DTYP, "stream")
-    field(INP,  "@edwardsTic.proto get_b_power($(device):POWER) $(port)")
+    field(INP,  "@edwardsTic.proto get_b_power($(P)BACKING:POWER:) $(PORT)")
     field(SCAN, "1 second")
     field(EGU,  "W")
     field(PREC, "1")
@@ -116,11 +118,9 @@ record(ai, "$(device):POWER")
     field(LSV,  "MINOR")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
-    field(FLNK, "$(device):POWER:ALERT")
 }
-record(longin, "$(device):POWER:ALERT")
+record(longin, "$(P)BACKING:POWER:ALERT")
 {
-    field(FLNK, "$(device):POWER:PRI")
     field(HIGH, "1")
     field(LOW,  "-1")
     field(HIHI, "48")
@@ -130,7 +130,7 @@ record(longin, "$(device):POWER:ALERT")
     field(HHSV, "MAJOR")
     field(LLSV, "MAJOR")
 }
-record(mbbi, "$(device):POWER:PRI")
+record(mbbi, "$(P)BACKING:POWER:PRI")
 {
     field(ZRST, "OK")
     field(ONST, "Warning") field(ONSV, "MINOR")

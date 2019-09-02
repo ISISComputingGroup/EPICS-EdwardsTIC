@@ -10,9 +10,11 @@ include $(TOP)/configure/CONFIG
 #----------------------------------------------------
 # Create and install (or just install)
 # databases, templates, substitutions like this
-DB += edwardsTicTurbo.template
-DB += edwardsTicBacking.template
-DB += edwardsTicGauge.template
+DB += edwardsTicTurbo.db
+DB += edwardsTicBacking.db
+DB += edwardsTicGauge.db
+DB += edwardsTicErrorsUnits.db
+DB += edwardsTicUsedGauges.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

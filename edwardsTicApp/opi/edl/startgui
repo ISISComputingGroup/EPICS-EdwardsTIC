@@ -1,3 +1,0 @@
-#!/bin/sh
-export EDMDATAFILES=.:/home/controls/support/edwardsTIC/1-0/edwardsTICApp/opi/edl
-edm -x edwardsTicTest.edl &
