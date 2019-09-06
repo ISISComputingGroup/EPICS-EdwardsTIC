@@ -34,11 +34,3 @@ file "$(UTILITIES)/db/error_setter.template" {
     {"\$(P)", "GAUGE3:PRESSURE", "GAUGE3:UNIT"}
     {"\$(P)", "GAUGE3:PRESSURE", "GAUGE3:PRI"}
 }
-
-file "$(UTILITIES)/db/unit_setter.template" {
-  pattern {P, FROM, TO}
-
-  {"\$(P)", "GAUGE1:UNIT", "GAUGE1:PRESSURE"}
-  {"\$(P)", "GAUGE2:UNIT", "GAUGE2:PRESSURE"}
-  {"\$(P)", "GAUGE3:UNIT", "GAUGE3:PRESSURE"}
-}

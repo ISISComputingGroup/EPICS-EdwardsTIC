@@ -11,22 +11,36 @@
 ################################################################################
 # P - Pressure
 #
-record(ai, "$(P)GAUGE$(GAUGE):PRESSURE")
+record(ai, "$(P)GAUGE$(GAUGE):PRESSURE:RAW")
 {
-    field(DESC, "Gauge $(GAUGE) Pressure")
+    field(DESC, "Gauge $(GAUGE) Pa pressure")
     field(DTYP, "stream")
     field(INP,  "@edwardsTic.proto get_g$(GAUGE)_p($(P)GAUGE$(GAUGE):) $(PORT)")
     field(SCAN, "1 second")
 
-    field(EGU, "")
+    field(EGU, "Pa")
+
+    info(archive, "VAL")
+}
+
+record(calc, "$(P)GAUGE$(GAUGE):PRESSURE")
+{
+    field(DESC, "Gauge $(GAUGE) Pressure")
+    field(INPA, "$(P)GAUGE$(GAUGE):PRESSURE:RAW CP MS")
+    field(CALC, "A/100.0")
+    field(PREC, "2")
+
+    field(EGU, "mbar")
 
     info(archive, "VAL")
     info(INTEREST, "HIGH")
 
     info(alarm, "EDTIC")
 }
+
 record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
 {
+    # These units are not used at ISIS. They are assumed to be Pa.
     field(DESC, "Gauge $(GAUGE) Units")
     field(DTYP, "Raw Soft Channel")
     field(ZRVL, "59")
