@@ -36,6 +36,8 @@ record(calc, "$(P)GAUGE$(GAUGE):PRESSURE")
     info(INTEREST, "HIGH")
 
     info(alarm, "EDTIC")
+    
+    field(ASG, "READONLY")
 }
 
 record(mbbi, "$(P)GAUGE$(GAUGE):UNIT")
