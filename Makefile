@@ -7,3 +7,5 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *app))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocboot))
 include $(TOP)/configure/RULES_TOP
+ioctests:
+	.\system_tests\run_tests.bat
